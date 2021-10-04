@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">eBookReader</string>
+    <string name="logo_description">KalibaReader Logo</string>
+    <string name="login_description">Connect to the cloud service of your choice to locate your Calibre library and start using KalibaReader right away!</string>
+    <string name="login_button_text">Read books on your phone</string>
+
+    Read books on your phone
+</resources>

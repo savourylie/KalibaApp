@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:theme="@style/Theme.EBookReader">
+
+    <ImageView
+        android:id="@+id/login_image"
+        android:layout_width="379dp"
+        android:layout_height="401dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.151"
+        app:srcCompat="@drawable/splash_logo_sec"
+        android:contentDescription="@string/logo_description"/>
+
+    <TextView
+        android:id="@+id/login_description"
+        android:layout_width="280dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="28dp"
+        android:text="@string/login_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_image" />
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="256dp"
+        android:layout_height="48dp"
+        android:background="@drawable/login_button_background"
+        android:drawableStart="@drawable/local_library_container_primary"
+        android:text="@string/login_button_text"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/login_description"
+        app:layout_constraintVertical_bias="0.514" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
