@@ -3,6 +3,8 @@
     <string name="logo_description">KalibaReader Logo</string>
     <string name="login_description">Connect to the cloud service of your choice to locate your Calibre library and start using KalibaReader right away!</string>
     <string name="login_button_text">Read books on your phone</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
     Read books on your phone
 </resources>
