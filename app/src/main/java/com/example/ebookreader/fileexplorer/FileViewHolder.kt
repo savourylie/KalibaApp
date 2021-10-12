@@ -2,6 +2,7 @@ package com.example.ebookreader.fileexplorer
 
 import android.view.View
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.databinding.DataBindingUtil
@@ -15,4 +16,5 @@ class FileViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     val container: CardView = itemView.findViewById(R.id.explorer_item)
     val fileName: TextView = itemView.findViewById(R.id.tv_file_name)
     val imgFile: ImageView = itemView.findViewById(R.id.img_file_type)
+    val overLay: LinearLayout = itemView.findViewById(R.id.item_overlay)
 }

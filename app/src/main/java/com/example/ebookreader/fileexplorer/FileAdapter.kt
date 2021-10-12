@@ -10,7 +10,8 @@ import java.io.File
 
 class FileAdapter(private val context: Context,
                   private val files: List<File>,
-                  private val listener: OnFolderClickedListener,
+                  private val folderListener: OnFolderClickedListener,
+                  private val itemListener: OnFileSelectedListener,
                   private val binding: FragmentFileExplorerBinding
                   ): RecyclerView.Adapter<FileViewHolder>() {
 
@@ -23,7 +24,11 @@ class FileAdapter(private val context: Context,
 //        holder.fileName.isSelected = true
 
         holder.imgFile.setOnClickListener {
-            listener.onFolderClicked(files[position], binding)
+            folderListener.onFolderClicked(files[position], binding)
+        }
+
+        holder.container.setOnClickListener {
+            itemListener.onFileClicked(files[position], holder.overLay, binding)
         }
     }
 

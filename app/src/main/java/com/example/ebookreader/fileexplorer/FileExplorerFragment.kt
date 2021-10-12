@@ -9,10 +9,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.NonNull
+import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.ebookreader.R
@@ -20,13 +22,14 @@ import com.example.ebookreader.databinding.FragmentFileExplorerBinding
 import java.io.File
 
 
-class FileExplorerFragment : Fragment(), OnFolderClickedListener {
+class FileExplorerFragment : Fragment(), OnFolderClickedListener, OnFileSelectedListener {
 
     private val TAG = javaClass.simpleName
 
     private lateinit var fileList: List<File>
     lateinit var storage: File
     lateinit var currentPath: File
+    var selectedPathString: String? = null
 
     private lateinit var fileAdapter: FileAdapter
     private lateinit var permReqLauncher: ActivityResultLauncher<String>
@@ -91,7 +94,7 @@ class FileExplorerFragment : Fragment(), OnFolderClickedListener {
         recyclerView.layoutManager = GridLayoutManager(context, 1)
         fileList = ArrayList<File>()
         (fileList as ArrayList<File>).addAll(findFiles(file))
-        fileAdapter = FileAdapter(requireContext(), fileList, this, binding)
+        fileAdapter = FileAdapter(requireContext(), fileList, this, this, binding)
         recyclerView.adapter = fileAdapter
     }
 
@@ -100,6 +103,16 @@ class FileExplorerFragment : Fragment(), OnFolderClickedListener {
             currentPath = file
             displayFiles(file, binding)
             binding.pathHolder.text = file.absolutePath
+        }
+    }
+
+    override fun onFileClicked(file: File, layout: LinearLayout, binding: FragmentFileExplorerBinding) {
+        if (layout.visibility != View.VISIBLE) {
+            layout.visibility = View.VISIBLE
+            selectedPathString = file.absolutePath
+        } else {
+            layout.visibility = View.INVISIBLE
+            selectedPathString = null
         }
     }
 }
