@@ -71,6 +71,7 @@
 
 <!--        Font-->
         <item name="android:textSize">@dimen/description_text_size</item>
+        <item name="android:textColor">@color/colorSecondary</item>
         <item name="android:fontFamily">@font/montserrat</item>
 <!--        Buttons-->
         <item name="android:buttonStyle">@style/buttonPrimary</item>

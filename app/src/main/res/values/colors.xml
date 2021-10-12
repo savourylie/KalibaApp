@@ -33,4 +33,6 @@
     <color name="colorErrorContainer">@color/colorError</color>
     <color name="colorOnErrorContainer">#A6A55D</color>
 
+    <color name="divider">#E0E0E0</color>
+
 </resources>

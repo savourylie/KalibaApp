@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.fragment.findNavController
 import com.example.ebookreader.R
 import com.example.ebookreader.databinding.FragmentLoginBinding
 import com.example.ebookreader.utils.TypeFaceStyler
@@ -28,6 +29,12 @@ class LoginFragment : Fragment() {
             .spannable
 
         binding.invalidateAll()
+
+        binding.loginButton.setOnClickListener {
+            findNavController()
+                .navigate(R.id.action_loginFragment_to_fileExplorerFragment)
+        }
+
         return binding.root
     }
 }

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/folder_list_wrapper"
+        android:drawable="@drawable/folder_list"
+        android:width="32dp"
+        android:height="32dp"
+        />
+</layer-list>
