@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ebookreader.R
+import com.example.ebookreader.databinding.FragmentFileExplorerBinding
 import java.io.File
 
 class FileAdapter(private val context: Context,
-                  private val files: List<File>
+                  private val files: List<File>,
+                  private val listener: OnFolderClickedListener,
+                  private val binding: FragmentFileExplorerBinding
                   ): RecyclerView.Adapter<FileViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FileViewHolder {
@@ -18,6 +21,10 @@ class FileAdapter(private val context: Context,
     override fun onBindViewHolder(holder: FileViewHolder, position: Int) {
         holder.fileName.text = files[position].name
 //        holder.fileName.isSelected = true
+
+        holder.imgFile.setOnClickListener {
+            listener.onFolderClicked(files[position], binding)
+        }
     }
 
     override fun getItemCount(): Int {
