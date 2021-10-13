@@ -78,7 +78,7 @@ class FileExplorerFragment : Fragment(), OnFolderClickedListener, OnFileSelected
                     currentPath = File(currentPath.parentFile.absolutePath)
                     displayFiles(currentPath, binding)
                 } else {
-                    parentFragmentManager.popBackStack()
+//                    parentFragmentManager.popBackStack()
                 }
             }
         }
