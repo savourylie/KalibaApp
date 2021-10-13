@@ -6,6 +6,7 @@
         <entry key="app/src/main/res/drawable-v24/epub_wrapper.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.282" />
         <entry key="app/src/main/res/drawable-v24/pdf_wrapper.xml" value="0.1945" />
+        <entry key="app/src/main/res/drawable/button_error_background.xml" value="0.122" />
         <entry key="app/src/main/res/drawable/button_primary_background.xml" value="0.1945" />
         <entry key="app/src/main/res/drawable/explorer_item.xml" value="0.2205" />
         <entry key="app/src/main/res/drawable/file_list_wrapper.xml" value="0.2205" />
@@ -16,7 +17,8 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.335" />
         <entry key="app/src/main/res/layout/explorer_item.xml" value="0.3385416666666667" />
         <entry key="app/src/main/res/layout/file_container.xml" value="0.3385416666666667" />
-        <entry key="app/src/main/res/layout/fragment_file_explorer.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/fragment_file_explorer.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.31614583333333335" />
         <entry key="app/src/main/res/layout/fragment_login.xml" value="0.335" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.117" />
       </map>

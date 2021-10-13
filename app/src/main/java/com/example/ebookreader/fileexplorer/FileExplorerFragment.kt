@@ -14,10 +14,17 @@ import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.NonNull
+import androidx.core.content.ContextCompat
 import androidx.core.view.isVisible
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Observer
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.ebookreader.R
+import com.example.ebookreader.databinding.FileContainerBinding
 import com.example.ebookreader.databinding.FragmentFileExplorerBinding
 import java.io.File
 
@@ -26,14 +33,17 @@ class FileExplorerFragment : Fragment(), OnFolderClickedListener, OnFileSelected
 
     private val TAG = javaClass.simpleName
 
+    lateinit var binding: FragmentFileExplorerBinding
+
     private lateinit var fileList: List<File>
     lateinit var storage: File
     lateinit var currentPath: File
-    var selectedPathString: String? = null
+    var selectedPathString = MutableLiveData<String?>()
 
     private lateinit var fileAdapter: FileAdapter
     private lateinit var permReqLauncher: ActivityResultLauncher<String>
     private var data = ""
+    private var itemSelectedPos = -1
 
     override fun onAttach(@NonNull context: Context) {
         super.onAttach(context)
@@ -46,8 +56,10 @@ class FileExplorerFragment : Fragment(), OnFolderClickedListener, OnFileSelected
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val binding: FragmentFileExplorerBinding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_file_explorer, container, false)
+        binding = DataBindingUtil.inflate(inflater,
+                                          R.layout.fragment_file_explorer,
+                                          container,
+                                         false)
 
         binding.pathHolder.text = storage.absolutePath
 
@@ -65,12 +77,26 @@ class FileExplorerFragment : Fragment(), OnFolderClickedListener, OnFileSelected
                 if (::currentPath.isInitialized && currentPath.absolutePath != storage.absolutePath) {
                     currentPath = File(currentPath.parentFile.absolutePath)
                     displayFiles(currentPath, binding)
-                } else {
-                    activity?.onBackPressed()
                 }
             }
         }
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner, callback)
+
+        selectedPathString.observe(viewLifecycleOwner, Observer {
+            Log.d(TAG, "Observer: " + it.toString())
+
+            if (it == null) {
+                changeOkButtonColor(false)
+            } else {
+                changeOkButtonColor(true)
+            }
+        })
+
+        binding.okButton.setOnClickListener {
+//            if (selectedPathString != null) {
+//                Navigation.createNavigateOnClickListener()
+//            }
+        }
 
         return binding.root
     }
@@ -94,26 +120,38 @@ class FileExplorerFragment : Fragment(), OnFolderClickedListener, OnFileSelected
         recyclerView.layoutManager = GridLayoutManager(context, 1)
         fileList = ArrayList<File>()
         (fileList as ArrayList<File>).addAll(findFiles(file))
-        fileAdapter = FileAdapter(requireContext(), fileList, this, this, binding)
+        fileAdapter = FileAdapter(this, this, binding)
+        fileAdapter.submitList(fileList)
         recyclerView.adapter = fileAdapter
+        binding.pathHolder.text = file.absolutePath
     }
 
     override fun onFolderClicked(file: File, binding: FragmentFileExplorerBinding) {
         if (file.isDirectory) {
             currentPath = file
+            selectedPathString.value = file.absolutePath
             displayFiles(file, binding)
-            binding.pathHolder.text = file.absolutePath
         }
     }
 
-    override fun onFileClicked(file: File, layout: LinearLayout, binding: FragmentFileExplorerBinding) {
-        if (layout.visibility != View.VISIBLE) {
-            layout.visibility = View.VISIBLE
-            selectedPathString = file.absolutePath
+    override fun onFileClicked(file: File,
+                               holder: FileViewHolder, selected: Boolean) {
+
+        selectedPathString.value = if (selected) file.absolutePath else null
+
+        Log.d(TAG, selectedPathString.value.toString())
+    }
+
+    private fun changeOkButtonColor(highlight: Boolean = true) {
+
+        if (highlight) {
+            binding.okButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.highlighted_button_text))
+            binding.okButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.highlighted_button_bg))
         } else {
-            layout.visibility = View.INVISIBLE
-            selectedPathString = null
+            binding.okButton.setTextColor(ContextCompat.getColor(requireContext(), R.color.colorSecondary))
+            binding.okButton.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.colorPrimary))
         }
+
     }
 }
 

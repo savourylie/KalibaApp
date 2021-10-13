@@ -4,7 +4,7 @@
     <color name="colorPrimaryDark">#333333</color>
     <color name="colorSecondary">#333333</color>
     <color name="colorBackground">#F5F5EB</color>
-    <color name="colorError">#FF0101</color>
+    <color name="colorError">#E0E0E0</color>
 
     <color name="colorPrimaryVariant">#F5F5EB</color>
     <color name="colorSecondaryVariant">#333333</color>
@@ -12,7 +12,7 @@
     <color name="colorOnPrimary">#333333</color>
     <color name="colorOnSecondary">#F5F5EB</color>
     <color name="colorOnBackground">#333333</color>
-    <color name="colorOnError">#E0E0E0</color>
+    <color name="colorOnError">#F5F5EB</color>
     <color name="colorOnSurface">#F2F1A0</color>
     <color name="scrimBackground">#A6A55D</color>
 
@@ -35,5 +35,7 @@
 
     <color name="divider">#E0E0E0</color>
     <color name="selected_overlay">#A741D2B3</color>
+    <color name="highlighted_button_text">#E0E0E0</color>
+    <color name="highlighted_button_bg">#866596</color>
 
 </resources>

@@ -5,7 +5,7 @@ import com.example.ebookreader.databinding.FragmentFileExplorerBinding
 import java.io.File
 
 interface OnFileSelectedListener {
-    fun onFileClicked(file: File, layout: LinearLayout, binding: FragmentFileExplorerBinding)
+    fun onFileClicked(file: File, holder: FileViewHolder, selected: Boolean)
 }
 
 interface OnFolderClickedListener {

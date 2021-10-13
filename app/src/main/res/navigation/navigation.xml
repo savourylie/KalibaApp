@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/loginFragment">
 
@@ -15,5 +16,14 @@
     <fragment
         android:id="@+id/fileExplorerFragment"
         android:name="com.example.ebookreader.fileexplorer.FileExplorerFragment"
-        android:label="FileExplorerFragment" />
+        android:label="FileExplorerFragment" >
+        <action
+            android:id="@+id/action_fileExplorerFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.ebookreader.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>
