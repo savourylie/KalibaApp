@@ -16,15 +16,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         Log.d(TAG, "onCreate")
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+    }
 
-//        // Style UI
-//        val loginDescription = binding.loginDescription
-//        loginDescription.text =
-//            TypeFaceStyler(this, loginDescription)
-//            .styleText( "Kaliba", R.font.nunito_black)
-//            .styleText( "Reader", R.font.nunito_extralight_italic)
-//            .spannable
-//
-//        binding.invalidateAll()
+    override fun onBackPressed() {
+        super.onBackPressed()
     }
 }

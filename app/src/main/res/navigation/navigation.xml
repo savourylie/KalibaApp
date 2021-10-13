@@ -11,7 +11,8 @@
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_fileExplorerFragment"
-            app:destination="@id/fileExplorerFragment" />
+            app:destination="@id/fileExplorerFragment"
+            app:popUpTo="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/fileExplorerFragment"
@@ -19,7 +20,8 @@
         android:label="FileExplorerFragment" >
         <action
             android:id="@+id/action_fileExplorerFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
