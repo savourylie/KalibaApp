@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:theme="@style/Theme.EBookReader"
+        android:theme="@style/Theme.KalibaReader"
         >
 
         <LinearLayout
@@ -15,7 +15,7 @@
             android:layout_height="60dp"
             android:background="@color/colorSecondary"
             android:elevation="10dp"
-            android:theme="@style/Theme.EBookReader">
+            android:theme="@style/Theme.KalibaReader">
 
             <TextView
                 android:id="@+id/path_holder"

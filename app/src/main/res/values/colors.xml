@@ -21,7 +21,7 @@
     <color name="colorOnPrimaryContainer">@color/colorSecondary</color>
     <color name="colorSecondaryContainer">@color/colorPrimary</color>
     <color name="colorOnSecondaryContainer">@color/colorSecondary</color>
-    <color name="colorTertiary">#866596</color>
+    <color name="colorTertiary">#E0E0E0</color>
     <color name="colorOnTertiary">#F2F1A0</color>
     <color name="colorTertiaryContainer">#F2F1A0</color>
     <color name="colorOnTertiaryContainer">#866596</color>

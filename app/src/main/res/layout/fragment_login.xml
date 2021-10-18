@@ -6,7 +6,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:theme="@style/Theme.EBookReader">
+        android:theme="@style/Theme.KalibaReader">
 
         <ImageView
             android:id="@+id/login_image"

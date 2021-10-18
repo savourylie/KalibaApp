@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation"
     app:startDestination="@id/loginFragment">
 
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.example.ebookreader.login.LoginFragment"
+        android:name="com.onionmonster.kalibareader.login.LoginFragment"
         android:label="LoginFragment" >
         <action
             android:id="@+id/action_loginFragment_to_fileExplorerFragment"
-            app:destination="@id/fileExplorerFragment"
-            app:popUpTo="@id/loginFragment" />
+            app:destination="@id/fileExplorerFragment" />
     </fragment>
     <fragment
         android:id="@+id/fileExplorerFragment"
-        android:name="com.example.ebookreader.fileexplorer.FileExplorerFragment"
+        android:name="com.onionmonster.kalibareader.fileexplorer.FileExplorerFragment"
         android:label="FileExplorerFragment" >
         <action
             android:id="@+id/action_fileExplorerFragment_to_homeFragment"
-            app:destination="@id/homeFragment"
-            app:popUpToInclusive="false" />
+            app:destination="@id/homeFragment" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.ebookreader.home.HomeFragment"
-        android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        android:name="com.onionmonster.kalibareader.home.HomeFragment"
+        android:label="HomeFragment">
+        <argument
+            android:name="libraryPath"
+            app:argType="string" />
+    </fragment>
 </navigation>

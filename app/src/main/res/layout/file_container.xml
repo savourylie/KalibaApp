@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:cardElevation="5dp"
-        android:theme="@style/Theme.EBookReader">
+        android:theme="@style/Theme.KalibaReader">
 
         <FrameLayout
             android:layout_width="match_parent"
